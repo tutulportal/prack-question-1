@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Important Question For you?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="question-mark-like-icon">?</h1>
+    <div class="main-div">
+        <h2 class="question-2">Are you gay?</h2>
+        <div class="buttons-mother">
+            <button id="yesBtn" class="yes-button">Yes</button>
+            <button id="noBtn" class="no-button">No</button>
+        </div>
+    </div>
+    <div id="fullScreenYesBox" class="full-screen-yes">
+        <button id="finalYes">Yes</button>
+    </div>
+
+    <div id="congratsBox" class="congrats-screen">
+        <h1>Congrats! You are gay!🫡🎉</h1>
+    </div>
+
+    <script>
+        var yesBtn = document.getElementById('yesBtn');
+        var noBtn = document.getElementById('noBtn');
+        var finalYes = document.getElementById('finalYes');
+        var fullScreenYesBox = document.getElementById('fullScreenYesBox');
+        var congratsBox = document.getElementById('congratsBox');
+        var areYouSure = '';
+        var reallySure = '';
+        var reallyReallySure = '';
+
+        function fullScreenYes() {
+            fullScreenYesBox.style.display = 'block';
+        }
+
+        function congratulations() {
+            congratsBox.classList.add('active');
+            fullScreenYesBox.css.display = "none";
+        }
+
+        finalYes.addEventListener('click', function () {
+            congratulations();
+        });
+
+        yesBtn.addEventListener('click', function () {
+            congratulations();
+        });
+
+        noBtn.addEventListener('click', function () {
+            noBtn.innerText = "Are you sure?";
+            yesBtn.style.fontSize = "40px";
+            noBtn.id = "areYouSure";
+            areYouSure = document.getElementById('areYouSure');
+            areYouSure.addEventListener('click', function () {
+                noBtn.innerText = "Really Sure?";
+                yesBtn.style.fontSize = "60px";
+                noBtn.id = "reallySure";
+                reallySure = document.getElementById('reallySure');
+                reallySure.addEventListener('click', function () {
+                    noBtn.innerText = "Are Really Really Sure??";
+                    yesBtn.style.fontSize = "80px";
+                    noBtn.id = "reallyReallySure";
+                    reallyReallySure = document.getElementById('reallyReallySure');
+                    reallyReallySure.addEventListener('click', function () {
+                        noBtn.innerText = "I am giving you 2 minutes to think!!!";
+                        yesBtn.style.fontSize = "100px";
+                        fullScreenYes();
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
